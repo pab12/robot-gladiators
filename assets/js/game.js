@@ -1,8 +1,4 @@
-
-
-
-
-
+// fight function (now with parameter for enemy's object holding name, health, and attack values)
 var fight = function(enemy) {
     
     // repeat and execute as long as the enemy-robot is alive
@@ -79,6 +75,7 @@ var startGame = function() {
         if (playerInfo.health > 0) {
     
           window.alert("welcome to Robot Gladiators! Round " + (i + 1));
+          
     
           // pick new enemy to fight based on the index of the enemy.names array
             var pickedEnemyObj = enemyInfo[i];
@@ -167,7 +164,19 @@ var randomNumber = function(min, max) {
     var value = Math.floor(Math.random() * (max - min +1) + min);
     return value;
 }
+//function to set name
+var getPlayerName = function() {
+    var name ="";
+
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your robot's name is " + name);
+    return name;
+};
 var playerInfo = {
+    name: getPlayerName(),
     name:window.prompt("What is your robot's name?"),
     health: 100,
     attack: 10,
@@ -197,12 +206,6 @@ var playerInfo = {
     }
     
 };
-
-//Game States
-// "WIN" - Player robot has defeated all enemy-robots
-//  * Fight all enemy-robots
-//  * Defeat each enemy-robot
-// "LOSE" - Player robot's health is zero or less
 
 // You can also log multiple values at once like this
 
